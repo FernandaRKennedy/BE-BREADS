@@ -8,6 +8,10 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/new' , (req, res) =>{
+  res.render('new')
+ })
+
 //get bread by index
 router.get('/:index', (req, res) => {
   const { index } = req.params
@@ -16,5 +20,18 @@ router.get('/:index', (req, res) => {
   })
 
 });
+
+router.post('/', (req,res) =>{
+  if(!req.body.image) req.body.image = 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg'
+  
+  if(req.body.hasGluten === 'on'){
+     req.body.hasGluten = true
+  }else{
+    req.body.hasGluten = false
+  }
+
+  Bread.push(req.body)
+  res.redirect('/breads')
+})
 
 module.exports = router;
