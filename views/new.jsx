@@ -5,13 +5,14 @@ function New() {
     return (
         <Default>
             <h2>Add a new bread</h2>
-            <div className='newButton'>
-                <a href='/breads'>
+            <div className='homeBtn'>
+                <a href='/breads/'>
                     <button>
-                        HOME
-                    </button></a>
+                        Home
+                    </button>
+                </a>
             </div>
-            <form action='/breads' method='POST' >
+            <form action='/breads' method='POST'>
                 <label htmlFor="name">Name</label>
                 <input
                     type="text"
@@ -37,5 +38,4 @@ function New() {
         </Default>
     )
 }
-
 module.exports = New
