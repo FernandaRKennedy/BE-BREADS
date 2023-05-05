@@ -24,7 +24,7 @@ router.get('/:index', (req, res) => {
 });
 
 
-router.get('/:index/edit', (req,res)=>{
+router.get('/:index/edit', (req,res)=> {
   const { index } = req.params
   res.render('edit', {
     bread: Bread[index],
@@ -32,11 +32,11 @@ router.get('/:index/edit', (req,res)=>{
   })
 })
 
-router.post('/', (req,res) =>{
+router.post('/', (req,res) => {
   if(!req.body.image) req.body.image = 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg'
   
-  if(req.body.hasGluten === 'on'){
-     req.body.hasGluten = true
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten = true
   }else{
     req.body.hasGluten = false
   }
@@ -46,19 +46,19 @@ router.post('/', (req,res) =>{
 })
 
 
-router.delete('/:index', (req,res)=>{
+router.delete('/:index', (req,res)=> {
 const {index} = req.params
 Bread.splice(index,1)
 res.status(303).redirect('/breads')
 })
 
 
-router.put('/:index', (req,res) =>{
+router.put('/:index', (req,res) => {
   const { index } = req.params
   if(!req.body.image) req.body.image = 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg'
   
-  if(req.body.hasGluten === 'on'){
-     req.body.hasGluten = true
+  if(req.body.hasGluten === 'on') {
+    req.body.hasGluten = true
   }else{
     req.body.hasGluten = false
   }
