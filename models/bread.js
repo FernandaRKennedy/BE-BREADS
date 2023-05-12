@@ -11,9 +11,17 @@ const breadSchema = new mongoose.Schema({
   image:{
     type: String,
     default: 'https://thumbs.dreamstime.com/b/bread-cut-14027607.jpg'
+  },
+  baker:{
+    type: String,
+    enun: ['Rachel', 'Ross', 'Monica', 'Joey', 'Chandler', 'Phoebe']
   }
 })
 
+
+breadSchema.methods.getBakerBy = function(){
+  return`${this.name} was baked with love by ${this.baker}`
+}
 module.exports = mongoose.model('Bread', breadSchema)
 
 //MVC - MODELS  DATA- VALIDATION / VIEWS-  /CONTROLLERS-  COMBINE MODELS AND VIWES
