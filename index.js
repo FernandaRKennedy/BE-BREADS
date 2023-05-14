@@ -3,7 +3,7 @@ const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 require("dotenv").config();
 const breadController = require("./controllers/bread");
-
+const bakerController = require('./controllers/baker')
 const app = express();
 
 // MIDDLEWARE
@@ -16,7 +16,7 @@ app.engine("jsx", require("express-react-views").createEngine());
 
 //routes
 app.use("/breads", breadController);
-
+app.use('/baker', bakerController)
 
 // db connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
