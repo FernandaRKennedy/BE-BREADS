@@ -13,6 +13,13 @@ router.get('/:id', async (req, res) => {
     baker
   })
 })
+
+router.delete('/:id', async (req,res) => {
+  const { id } = req.params
+  await Baker.findByIdAndDelete(id)
+  res.status(303).redirect('/breads')
+})
+
 router.get('/data/seed', async (req, res) => {
     const data = [
         {
