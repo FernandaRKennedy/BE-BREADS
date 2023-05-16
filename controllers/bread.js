@@ -4,12 +4,17 @@ const Baker = require ('../models/baker')
 
 //get all the bread
 router.get('/', async (req, res) => {
+try {
   const bread = await Bread.find()
   const bakers = await Baker.find()
   res.render('index', {
     breads: bread,
     bakers
   })
+} catch (error) {
+  console.log('error', error)
+  res.redirect('/breads')
+}
 })
 
 

@@ -21,7 +21,7 @@ const bakerSchema = new mongoose.Schema({
 })
 
 bakerSchema.post('findOneAndDelete', async function(){
-   await Bread.deleteMany({baker: this._conditions.id})
+   await Bread.deleteMany({ baker: this._conditions._id })
 })
 
 bakerSchema.virtual('breads',{
